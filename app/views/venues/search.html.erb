@@ -1,0 +1,9 @@
+<h1> Search for your favourite Spots!</h1>
+
+<%= form_tag "/result", method: :post do %>
+
+  <%= label_tag %> 
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+
+  <% end %>
