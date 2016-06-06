@@ -1,8 +1,31 @@
-<h1> Tasty Search </h1>
+<h1> Showing Search Results for: <%= params[:search] %> </h1>
+<table border="1">
+  <thead>
+    <th> Name</th>
+    <th> City</th>
+    <th> Category</th>
+    <th> Rating</th>
+    <th> Add to List</th>
+    <th> Add Comment</th>
 
-<div class="results">
-<%= @search_result.each do |item| %>
- <p> <%= item.inspect %> </p>
- <% end %>
 
-</div>
+  </thead>
+  <tbody>
+<% @search_result['restaurants'].each do |restaurant| %>
+<tr>
+  <td> <%= restaurant['restaurant']['name'] %></td>
+  <td> <%= restaurant['restaurant']["location"]['city'] %></td>
+  <td> <%= restaurant['restaurant']['cuisines'] %></td>
+  <td> <%= restaurant['restaurant']['user_rating']['aggregate_rating'] %></td>
+  <td>  <%= check_box_tag(:add_to_list) %></td>
+  <td> <%= text_area_tag(:message, "Add your comments here", size: "24x6") %></td>
+
+
+</tr>
+</tbody>
+
+<% end %>
+</table>
+<%= link_to 'Continue Searching', search_path, method: :get %>
+<%= submit_tag "Save List" %>
+<%= submit_tag "View List" %>

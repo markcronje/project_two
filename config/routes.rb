@@ -6,7 +6,6 @@ Rails.application.routes.draw do
        resources :venues
 
 
-
         post '/result' => 'venues#result'
         get '/result' => 'venues#result'
 
