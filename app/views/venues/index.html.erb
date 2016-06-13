@@ -4,7 +4,7 @@
 
 <div class="search">
 
-<%= form_tag "/results/:venueID", method: :post do %>
+<%= form_tag "/result", method: :post do %>
   <%= label_tag %>
   <%= text_field_tag(:search) %>
   <%= submit_tag("Search",:class=>"waves-effect waves-light btn")%>

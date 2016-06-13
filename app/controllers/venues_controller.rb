@@ -1,10 +1,8 @@
 class VenuesController < ApplicationController
 
 
-  def remove_from_list
-    Venue.find(params[:id]).update(:top10 => false)
-    redirect_to mytop10_path
-  end
+
+
 
   def index
     @search_result = HTTParty.get("https://developers.zomato.com/api/v2.1/search?q=#{params[:search]}&count=10", :headers => {"X-Zomato-API-Key" => "228c037c226e4f7fdac58a2a97f123dc"})
