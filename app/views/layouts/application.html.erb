@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Feedme</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>Feedme</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div class="navbar-fixed ">
+            <nav>
+                <div class="nav-wrapper teal darken-1">
+                    <a href="#" class="brand-logo">Recommend.me</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>
+                            <a href="sass.html">Logout</a>
+                        </li>
+                        <li>
+                            <a href="badges.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="collapsible.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+        <div class="container">
+            <%= yield %>
+        </div>
 
-<%= yield %>
+        <footer class="page-footer teal darken-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Recommend.me</h5>
+                        <p class="grey-text text-lighten-4">Wayfarers est butcher blue bottle fap man braid flannel. Flannel cronut letterpress art party before they sold out schlitz qui locavore. Keffiyeh banh mi eu, seitan freegan shoreditch tattooed enim wayfarers stumptown labore dreamcatcher cliche locavore laboris. Pickled chambray aute fingerstache hashtag cornhole actually, pop-up qui. Shoreditch cronut distillery whatever. Pour-over blue bottle single-origin coffee, pariatur kinfolk polaroid cliche celiac ennui odio pitchfork normcore taxidermy. Irure normcore deserunt exercitation excepteur, lo-fi direct trade pariatur literally gastropub gluten-free sriracha kitsch.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">More Goodies</h5>
+                        <ul>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="#!">About Us</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="#!"> City Guides</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="#!"> Contact Us </a>
+                            </li>
 
-</body>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2016 CTRL ALT CREATE PTY LTD
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
 </html>

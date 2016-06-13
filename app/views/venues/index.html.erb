@@ -1,0 +1,52 @@
+
+
+<h5> Find your recommendations and share them with your friends! </h5>
+
+<div class="search">
+
+<%= form_tag "/results/:venueID", method: :post do %>
+  <%= label_tag %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search",:class=>"waves-effect waves-light btn")%>
+  <% end  %>
+
+  </div>
+
+
+
+<h6> Showing Search Results for: <%= params[:search] %> </h6>
+
+<table class="highlight">
+  <thead>
+    <th> Name</th>
+    <th> City</th>
+    <th> Category</th>
+    <th> Rating</th>
+    <th> Add to List</th>
+
+  </thead>
+  <tbody>
+
+
+
+<% @search_result['restaurants'].each do |restaurant| %>
+<tr>
+  <td> <%= restaurant['restaurant']['name'] %></td>
+  <td> <%= restaurant['restaurant']["location"]['city'] %></td>
+  <td> <%= restaurant['restaurant']['cuisines'] %></td>
+  <td> <%= restaurant['restaurant']['user_rating']['aggregate_rating'] %></td>
+  <td> <%= button_to "Add", {:controller => 'venues', :action => 'create' }, {class: 'btn-floating btn-large waves-effect waves-light teal lighten-4
+' } %> </td>
+
+
+
+</tr>
+</tbody>
+
+<% end %>
+</table>
+
+
+<div class="view-list">
+
+</div>

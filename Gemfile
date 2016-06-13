@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'simple_form'
+
+
 gem 'httparty'
 
 gem 'materialize-sass'

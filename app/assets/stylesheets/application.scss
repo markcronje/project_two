@@ -1,0 +1,41 @@
+@import "materialize";
+
+
+
+
+body {
+  color: #212121;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #FCFCFC;
+}
+
+#search {
+  margin-top: 50px;
+}
+
+h5 {
+  padding-top: 20px;
+  margin-left: -30px;
+  text-align: center;
+}
+
+h6 {
+  padding-top: 0;
+  margin: 30px;
+}
+
+
+
+.search {
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.view-list {
+  width: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
