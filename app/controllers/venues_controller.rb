@@ -6,7 +6,6 @@ class VenuesController < ApplicationController
 
   def index
     @search_result = HTTParty.get("https://developers.zomato.com/api/v2.1/search?q=#{params[:search]}&count=10", :headers => {"X-Zomato-API-Key" => "228c037c226e4f7fdac58a2a97f123dc"})
-    @venueID = @search_result['restaurants'][0]['restaurant']['id']
   end
 
 
@@ -16,23 +15,20 @@ class VenuesController < ApplicationController
 
 
   def create
-  @select_venue = HTTParty.get("https://developers.zomato.com/api/v2.1/search?entity_id=#{params[:ID]}", :headers => {"X-Zomato-API-Key" => "228c037c226e4f7fdac58a2a97f123dc"})
-  venue = Venue.new
-  venue.name = @select_venue['restaurants'][0]['restaurant']['name']
-  venue.city = @select_venue['restaurants'][0]['restaurant']["location"]['city']
-  venue.category = @select_venue['restaurants'][0]['restaurant']['cuisines']
-  venue.rating = @select_venue['restaurants'][0]['restaurant']['user_rating']['aggregate_rating']
-  venue.venueID = @select_venue['restaurants'][0]['restaurant']['id']
-  venue.users_id = current_user.id
+    @select_venue = HTTParty.get("https://developers.zomato.com/api/v2.1/restaurant?res_id=#{params[:venue_id]}", :headers => {"X-Zomato-API-Key" => "228c037c226e4f7fdac58a2a97f123dc"})
+    venue = Venue.new
+    venue.name = @select_venue['restaurants'][0]['restaurant']['name']
+    venue.city = @select_venue['restaurants'][0]['restaurant']["location"]['city']
+    venue.category = @select_venue['restaurants'][0]['restaurant']['cuisines']
+    venue.rating = @select_venue['restaurants'][0]['restaurant']['user_rating']['aggregate_rating']
+    venue.venueID = @select_venue['restaurants'][0]['restaurant']['id']
+    venue.user = current_user
 
-  venue.save
     if venue.save
       flash[:message] = "Added to list"
-      redirect_to '/home'
-
+      redirect_to '/result'
     end
   end
-
 
 
   def list

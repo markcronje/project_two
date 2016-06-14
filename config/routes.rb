@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-       root to: "venues#index"
+       root to: "venues#home"
 
        resources :venues
 

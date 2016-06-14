@@ -2,6 +2,10 @@
 
 <h5> Find your recommendations and share them with your friends! </h5>
 
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <div class="search">
 
 <%= form_tag "/result", method: :post do %>
@@ -11,8 +15,6 @@
   <% end  %>
 
   </div>
-
-
 
 <h6> Showing Search Results for: <%= params[:search] %> </h6>
 
@@ -35,7 +37,7 @@
   <td> <%= restaurant['restaurant']["location"]['city'] %></td>
   <td> <%= restaurant['restaurant']['cuisines'] %></td>
   <td> <%= restaurant['restaurant']['user_rating']['aggregate_rating'] %></td>
-  <td> <%= button_to "Add", {:controller => 'venues', :action => 'create' }, {class: 'btn-floating btn-large waves-effect waves-light teal lighten-4
+  <td> <%= button_to "Add", {:controller => 'venues', :action => 'create', :venue_id => restaurant['restaurant']['id']}, {class: 'btn-floating btn-large waves-effect waves-light teal lighten-4
 ' } %> </td>
 
 

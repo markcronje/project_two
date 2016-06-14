@@ -4,6 +4,8 @@ gem 'devise'
 
 gem 'simple_form'
 
+gem 'rails_12factor', group: :production
+
 
 gem 'httparty'
 
@@ -51,3 +53,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+ruby "2.3.1"
