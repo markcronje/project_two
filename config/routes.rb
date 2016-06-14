@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :lists
   devise_for :users
 
-       root to: "venues#home"
+       root to: "venues#index"
 
        resources :venues
 
